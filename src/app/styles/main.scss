@@ -1,0 +1,10 @@
+@import url(./reset.scss);
+@import url(./common.scss);
+
+.layout {
+  padding: 30px 15px;
+  max-width: 1100px;
+  width: 100%;
+  margin: 0 auto;
+  min-height: 100vh;
+}

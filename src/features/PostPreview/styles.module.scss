@@ -1,0 +1,16 @@
+.post {
+  transition: 0.4s transform;
+
+  &:hover {
+    border-color: rgb(145, 145, 145);
+    transform: translateX(-4px);
+  }
+}
+
+.card {
+  padding: unset;
+}
+
+.btn {
+  margin-left: auto;
+}
