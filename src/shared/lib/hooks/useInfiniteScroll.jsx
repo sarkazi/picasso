@@ -12,8 +12,8 @@ export const useInfiniteScroll = ({ totalCount, posts, setCurrentPage }) => {
   const scrollHandler = (event) => {
     if (
       event.target.documentElement.scrollHeight -
-        (event.target.documentElement.scrollTop + window.innerHeight) <
-        100 &&
+        (event.target.documentElement.scrollTop + window.innerHeight) ===
+        0 &&
       posts.length < totalCount
     ) {
       setCurrentPage((prev) => prev + 1);
