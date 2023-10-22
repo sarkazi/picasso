@@ -10,6 +10,13 @@ const PostPage = () => {
 
   const { data, isLoading, error } = useGetPostByIdQuery({ postId });
 
+  if (error) {
+    notifications.show({
+      title: `${error.error}`,
+      color: "red",
+    });
+  }
+
   return (
     <Page>
       <Flex mih="100vh" align="center" justify="center" w="100%">

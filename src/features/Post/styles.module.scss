@@ -2,3 +2,14 @@
   width: 100%;
   aspect-ratio: 4/1;
 }
+.backBtn {
+  width: 100px;
+}
+.avatar {
+  justify-self: flex-end;
+  align-self: flex-end;
+  width: 35px;
+  height: 35px;
+  margin-bottom: 15px;
+  color: rgb(73, 73, 73);
+}
