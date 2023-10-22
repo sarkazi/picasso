@@ -4,7 +4,6 @@ import { useGetAllPostsQuery } from "../../shared/api/rtkApi";
 import PostPreview from "../../features/PostPreview";
 import SkeletonPostItem from "../../shared/ui/SkeletonPostItem";
 import Page from "../../widgets/Page";
-import { usePostTotalCount } from "../../shared/lib/hooks/usePostTotalCount";
 import { useInfiniteScroll } from "../../shared/lib/hooks/useInfiniteScroll";
 import { postDisplayLimit as limit } from "../../shared/const/postDisplayLimit";
 
@@ -12,31 +11,29 @@ const MainPage = () => {
   const [currentPage, setCurrentPage] = useState(1);
   const [posts, setPosts] = useState([]);
 
-  console.log(currentPage, 77);
-
-  const { totalCount } = usePostTotalCount();
-
   const { data, isLoading, error } = useGetAllPostsQuery({
     limit,
     page: currentPage,
   });
 
+  console.log(data, 888);
+
   useEffect(() => {
     if (data) {
       if (!posts.length) {
-        setPosts(data);
+        setPosts(data.posts);
       } else {
-        setPosts([...posts, ...data]);
+        setPosts([...posts, ...data.posts]);
       }
     }
   }, [data]);
 
-  useInfiniteScroll({ totalCount, posts, setCurrentPage });
+  useInfiniteScroll({ totalCount: data?.totalCount, posts, setCurrentPage });
 
   return (
     <Page>
       <ul className={styles.list}>
-        {posts.map((post, index) => {
+        {posts?.map((post, index) => {
           return <PostPreview key={post.title} post={post} index={index} />;
         })}
         {isLoading &&

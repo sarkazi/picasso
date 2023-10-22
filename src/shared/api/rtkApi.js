@@ -12,13 +12,15 @@ export const rtkApi = createApi({
         method: "GET",
       }),
       transformResponse: async (response, meta) => {
+        let totalCount = null;
+
         for (const pair of meta.response.headers.entries()) {
           if (pair[0] === "x-total-count") {
-            localStorage.setItem("jsonplaceholder_total_count_posts", pair[1]);
+            totalCount = pair[1];
           }
         }
 
-        return response;
+        return { posts: response, totalCount };
       },
     }),
 
