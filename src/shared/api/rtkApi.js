@@ -16,7 +16,7 @@ export const rtkApi = createApi({
 
         for (const pair of meta.response.headers.entries()) {
           if (pair[0] === "x-total-count") {
-            totalCount = pair[1];
+            totalCount = +pair[1];
           }
         }
 

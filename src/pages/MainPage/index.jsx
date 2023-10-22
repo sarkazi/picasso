@@ -16,8 +16,6 @@ const MainPage = () => {
     page: currentPage,
   });
 
-  console.log(data, 888);
-
   useEffect(() => {
     if (data) {
       if (!posts.length) {
