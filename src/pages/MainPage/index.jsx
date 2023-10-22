@@ -12,6 +12,8 @@ const MainPage = () => {
   const [currentPage, setCurrentPage] = useState(1);
   const [posts, setPosts] = useState([]);
 
+  console.log(currentPage, 77);
+
   const { totalCount } = usePostTotalCount();
 
   const { data, isLoading, error } = useGetAllPostsQuery({

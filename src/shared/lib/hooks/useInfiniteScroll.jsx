@@ -10,13 +10,13 @@ export const useInfiniteScroll = ({ totalCount, posts, setCurrentPage }) => {
   }, [totalCount, posts]);
 
   const scrollHandler = (event) => {
-    console.log(
-      event.target.documentElement.scrollHeight,
-      event.target.documentElement.scrollTop,
-      window.innerHeight,
-      event.target.documentElement.scrollHeight -
-        (event.target.documentElement.scrollTop + window.innerHeight),
-    );
+    // console.log(
+    //   event.target.documentElement.scrollHeight,
+    //   event.target.documentElement.scrollTop,
+    //   window.innerHeight,
+    //   event.target.documentElement.scrollHeight -
+    //     (event.target.documentElement.scrollTop + window.innerHeight),
+    // );
 
     if (
       event.target.documentElement.scrollHeight -
